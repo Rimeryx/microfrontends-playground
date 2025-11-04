@@ -1,0 +1,7 @@
+{
+  "name": "microfrontends-playground",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel start"
+  }
+}

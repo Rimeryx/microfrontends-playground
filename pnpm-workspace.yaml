@@ -1,0 +1,6 @@
+packages:
+  - "root-config"
+  - "mfe-react"
+  - "mfe-vanilla"
+  - "mfe-vue"
+  - "mfe-angular"

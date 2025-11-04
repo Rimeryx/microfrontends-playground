@@ -1,0 +1,27 @@
+<single-spa-router>
+
+  <nav>
+    <a href="/react">React</a>
+    <a href="/vanilla">Vanilla JS + jQuery</a>
+    <a href="/vue">Vue</a>
+    <a href="/angular">Angular</a>
+  </nav>
+
+  <main>
+    <route path="/react">
+      <application name="@Rimeryx/mfe-react"></application>
+    </route>
+
+    <route path="/vanilla">
+      <application name="@Rimeryx/mfe-vanilla"></application>
+    </route>
+
+    <route path="/vue">
+      <application name="@Rimeryx/mfe-vue"></application>
+    </route>
+
+    <route path="/angular">
+      <application name="@Rimeryx/mfe-angular"></application>
+    </route>
+  </main>
+</single-spa-router>

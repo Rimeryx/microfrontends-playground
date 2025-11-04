@@ -1,0 +1,27 @@
+{
+  "name": "mfe-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0",
+  "dependencies": {
+    "single-spa-vue": "3.0.0",
+    "vue": "3.4.38"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.5.22",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5",
+    "style-loader": "^4.0.0",
+    "vue-loader": "17",
+    "webpack": "^5.101",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.0.4"
+  }
+}

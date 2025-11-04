@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Root Config</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta name="importmap-type" use-injector />
+  <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
+  <!-- More info at https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#domain-list -->
+  <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
+
+  <!-- Shared dependencies go into this import map -->
+  <script type="injector-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js"
+      }
+    }
+  </script>
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js">
+
+  <!-- Add your organization's prod import map URL to this script's src  -->
+  <!-- <script type="injector-importmap" src="/importmap.json"></script> -->
+
+  <% if (isLocal) { %>
+    <script type="injector-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js",
+
+        "@Rimeryx/root-config": "//localhost:9000/Rimeryx-root-config.js",
+
+        "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/+esm",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/+esm",
+        "react-dom/client": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/client/+esm",
+        "react/jsx-runtime": "https://cdn.jsdelivr.net/npm/react@18.2.0/jsx-runtime/+esm",
+        "single-spa-react": "https://cdn.jsdelivr.net/npm/single-spa-react@6.0.1/+esm",
+
+        "jquery": "https://cdn.jsdelivr.net/npm/jquery@3.7.1/+esm",
+        "@Rimeryx/mfe-vanilla": "http://localhost:8082/Rimeryx-mfe-vanilla.js",
+
+        "vue": "https://cdn.jsdelivr.net/npm/vue@3.4.38/+esm",
+        "vue/runtime-dom": "https://cdn.jsdelivr.net/npm/vue@3.4.38/runtime-dom/+esm",
+        "vue/runtime-core": "https://cdn.jsdelivr.net/npm/vue@3.4.38/runtime-core/+esm",
+        "vue/reactivity": "https://cdn.jsdelivr.net/npm/vue@3.4.38/reactivity/+esm",
+        "vue/shared": "https://cdn.jsdelivr.net/npm/vue@3.4.38/shared/+esm",
+        "single-spa-vue": "https://cdn.jsdelivr.net/npm/single-spa-vue@3.0.0/+esm",
+        "@Rimeryx/mfe-vue": "http://localhost:8081/Rimeryx-mfe-vue.js",
+
+        "@Rimeryx/mfe-angular": "http://localhost:4200/main.js"
+      }
+    }
+    </script>
+  <% } %>
+
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <main></main>
+  <script>
+    window.importMapInjector.initPromise.then(() => {
+      import('@Rimeryx/root-config');
+    });
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
